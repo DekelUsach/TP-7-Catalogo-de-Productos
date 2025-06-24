@@ -1,12 +1,13 @@
-# React + Vite
+# Proyecto Final – Trabajo Práctico del Primer Cuatrimestre
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## ✨ Declaración de Gratitud y Plena Satisfacción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Con sumo respeto y una inmensa satisfacción personal, me permito presentar el **proyecto final correspondiente al último trabajo práctico del primer cuatrimestre**. Este momento, cargado de significación académica y emocional, representa no solo el cierre de una etapa curricular, sino también la culminación de semanas de dedicación, estudio riguroso y crecimiento intelectual.
 
-## Expanding the ESLint configuration
+Es imposible ocultar el júbilo que me embarga al haber alcanzado esta instancia. Este trabajo marca el epílogo de un recorrido formativo desafiante, el cual fue afrontado con perseverancia, compromiso ético y una profunda vocación de superación.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📝 Descripción del Proyecto
+
+Este repositorio contiene el código fuente y la documentación correspondiente al proyecto final. El mismo fue desarrollado cumpliendo con los requisitos establecidos por la cátedra, integrando conceptos teóricos y prácticos adquiridos a lo largo del cuatrimestre.
