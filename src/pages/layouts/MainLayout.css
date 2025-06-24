@@ -1,0 +1,36 @@
+.bg-body-tertiary{
+display: flex;
+justify-content: start;
+    width: 100%;
+    font-family: 'Libre Franklin';
+
+}
+.container-fluid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-brand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+a:hover{
+    color:#afafaf;
+    text-decoration: underline;
+}
+a img{
+    max-width: 50%;
+    max-height: 50%;
+    margin-right: 20px;
+}
