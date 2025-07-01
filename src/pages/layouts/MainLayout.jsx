@@ -6,7 +6,7 @@ import "./MainLayout.css";
 export function MainLayout() {
   return (
     <div className="app-layout">
-      <CNavbar className="bg-body-tertiary">
+      <CNavbar className="custom-navbar">
         <CContainer fluid>
           <CNavbarBrand>
             <NavLink to="/" className={"logo link"}>
