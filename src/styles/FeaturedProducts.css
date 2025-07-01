@@ -1,0 +1,9 @@
+.container div div img{ 
+ background-color: red;
+height: 20%;
+border-radius: 15px;
+padding: 0;
+}
+.container div div {
+    padding: 0;
+}

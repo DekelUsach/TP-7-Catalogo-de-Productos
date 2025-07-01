@@ -48,7 +48,9 @@
   overflow-y: auto;
   
 }
-
+.dropdown{
+  margin-left: 20px;
+}
 /* Footer */
 .app-footer {
   background-color: rgb(58, 58, 58);
