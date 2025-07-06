@@ -1,0 +1,36 @@
+.productos-container {
+  padding: 1rem;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.producto-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  
+}
+
+.producto-imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.botonAñadir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+.botonAñadir button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
