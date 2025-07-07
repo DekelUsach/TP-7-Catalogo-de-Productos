@@ -32,8 +32,7 @@ export default function ProductoDetalle() {
         <Col
           xs={12}
           md={6}
-          className="d-flex flex-column justify-content-center align-items-start p-4"
-         
+          className="d-flex flex-column justify-content-center align-items-start p-4 contenedor-info"
         >
           <h2 className="mb-3 w-100 text-center text-md-start">{producto.title}</h2>
 
@@ -47,7 +46,7 @@ export default function ProductoDetalle() {
           </Row>
           <Row className="w-100 mb-2">
             <Col xs={6}><strong>Marca:</strong></Col>
-            <Col xs={6}>{producto.brand}</Col>
+            <Col xs={6}> {producto.brand || "No brand"}</Col>
           </Row>
           <Row className="w-100 mb-2">
             <Col xs={6}><strong>Rating:</strong></Col>
@@ -64,7 +63,7 @@ export default function ProductoDetalle() {
             <Col xs={6}>{producto.stock}</Col>
           </Row>
 
-          <div className="w-100 text-center text-md-start agregar-carrito">
+          <div className="w-100 text-center text-md-start mb-4 row agregar-carrito ">
             <Button variant="primary" size="lg" className="w-100 ">
               Agregar al carrito
             </Button>
