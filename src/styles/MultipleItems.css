@@ -1,0 +1,51 @@
+
+.col img{
+
+
+}
+.primera{
+    display: flex;
+    align-items: center;
+    background-color: rgb(3, 3, 3);
+    border-radius:30px;
+    padding: 0;
+}
+.primera img{
+    max-width: 25%;
+    border-radius: 30px;
+    margin-right: 10%;
+    padding: 0;
+}
+.multipleContainer{
+    background-color: rgb(117, 117, 117);
+    border-radius: 30px;
+    padding: 0;
+
+}
+.fotosAbajoContainer{
+margin-left: 10%;    
+}
+.fotosAbajo img{
+    padding: 0;
+
+    max-width: 50%;
+    margin-top: 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.primera p{
+    font-family: "Saira Stencil One" !important;
+    padding: 0;
+
+    font-weight: bolder;
+    font-size: clamp(1rem, 2.5vw, 2.2rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    height: 100%;
+    margin-right: 10%;
+    padding-left: 10px;
+}
