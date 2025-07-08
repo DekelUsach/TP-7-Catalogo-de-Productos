@@ -79,7 +79,11 @@ export default function Productos() {
             <p><strong>Rating:</strong> ⭐ {producto.rating}</p>
 
             <div className="botonAñadir">
-              <button onClick={() => navigate("/productoDetalle", { state: { producto } })}>
+              {/* Acá, hacemos que en el location.state se almacene producto para dsp poder agarrarlo en productodetalle
+              Prefiero hacer esto antes que url por una cuestion de que ya tengo cargado todos los productos y no me conviene hacer una nueva query al server
+              Ademas de que es evidentemente mas rapido ya que está todo cargado en memoria.
+              */}
+              <button onClick={() => navigate("/productoDetalle", { state: { producto } })}> 
                 Ver detalle
               </button>
             </div>

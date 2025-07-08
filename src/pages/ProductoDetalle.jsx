@@ -5,17 +5,18 @@ import "../styles/ProductoDetalle.css";
 
 export default function ProductoDetalle() {
   const location = useLocation();
-  const producto = location.state?.producto;
+  // Acá lo que hago es obtener el producto del estado de antes desde la pagina de productos y puedo operar con esto mas abajo
+  const producto = location.state?.producto; //este signo de pregunta es unicamente para evitar errores si no hay producto, en vez de tirar un error, devuelve undefined
 
-  if (!producto) return <p className="text-center mt-5">No se encontró el producto.</p>;
+  if (!producto) return <p className="text-center mt-5">No se encontró el producto ):</p>;
 
   return (
-    <Container fluid className="p-0 m-0" >
-      <Row className="g-0 h-100">
+    <Container fluid className="p-0 m-0 hero" >
+      <Row className="g-0 h-100 g-row">
         <Col
           xs={12}
           md={6}
-          className="columna d-flex align-items-center justify-content-center bg-light"
+          className="columna d-flex align-items-center justify-content-center bg-light imagen-producto p-0 m-0  me-auto"
         >
           {producto.images && producto.images.length > 0 && (
             <Image
@@ -23,20 +24,19 @@ export default function ProductoDetalle() {
               alt={producto.title}
               fluid
               rounded
-              className='p-0 m-0 w-100 h-100 d-flex align-items-center justify-content-center'
+              className='p-0 m-0 w-100 h-100 d-flex align-items-center justify-content-center hero-image rounded-0'
             />
           )}
         </Col>
 
-        {/* Información del producto */}
         <Col
           xs={12}
           md={6}
           className="d-flex flex-column justify-content-center align-items-start p-4 contenedor-info"
         >
-          <h2 className="mb-3 w-100 text-center text-md-start">{producto.title}</h2>
+          <h2 className="mb-3 w-100 text-center text-md-start title">{producto.title}</h2>
 
-          <div className="w-100 mb-4">
+          <div className="w-100 mb-4 description">
             <p>{producto.description}</p>
           </div>
 
