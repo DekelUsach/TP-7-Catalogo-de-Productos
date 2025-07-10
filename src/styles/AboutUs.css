@@ -1,0 +1,215 @@
+/* Estilos generales */
+.about-us-container {
+    padding: 0;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .section {
+    padding: 5rem 0;
+  }
+  
+  .section-subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  /* Sección Hero */
+  .about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Historia */
+  .historia {
+    background-color:  rgb(36, 36, 36);
+    color: white;
+  }
+  
+  .historia-imagen {
+    background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1350&q=80') center/cover;
+    min-height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .historia-texto {
+    padding: 2rem;
+    
+  }
+  
+  .historia-texto h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .historia-texto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #bbbbbb;
+  }
+  
+  /* Valores */
+  .valores {
+    background-color: rgb(85, 85, 85)
+  }
+  
+  .valores-cards {
+    margin-top: 2rem;
+  }
+  
+  .valor-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    text-align: center;
+    background-color: rgb(36, 36, 36);
+    color: white;
+  }
+  
+  .valor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  .valor-icon {
+    font-size: 3rem;
+    margin: 1.5rem 0;
+    color: #ffffff;
+  }
+  
+  .valor-card .card-title {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  
+  .valor-card .card-text {
+    color: #000000;
+    padding: 0 1rem;
+  }
+  
+  /* Equipo */
+  .equipo {
+    background-color: #f8f9fa;
+  }
+  
+  .equipo-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .equipo-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .equipo-foto {
+    height: 250px;
+    background-size: cover;
+    background-position: top center;
+  }
+  
+  .equipo1 {
+    background: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=634&q=80') center/cover;
+  }
+  
+  .equipo2 {
+    background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=634&q=80') center/cover;
+  }
+  
+  .equipo3 {
+    background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=634&q=80') center/cover;
+  }
+  
+  .equipo-card .card-title {
+    color: #2c3e50;
+    font-weight: 700;
+  }
+  
+  .equipo-card .card-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .equipo-card .card-text {
+    color: #666;
+    margin-top: 1rem;
+  }
+  
+  /* Compromiso */
+  .compromiso {
+    background-color: white;
+  }
+  
+  .compromiso-item {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .compromiso-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #3498db;
+  }
+  
+  .compromiso-item h3 {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .compromiso-item p {
+    color: #666;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .historia-imagen {
+      min-height: 300px;
+      margin-bottom: 2rem;
+    }
+    
+    .valor-card, .equipo-card {
+      margin-bottom: 2rem;
+    }
+  }

@@ -1,15 +1,27 @@
 
-.col img{
 
-
-}
+.primera, .fotosAbajo {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .primera:hover{
+     img,  p{
+        transform: scale(1.03);
+    }
+  }
+  .primera img:hover, .fotosAbajo:hover {
+    transform: scale(1.03);
+  }
 .primera{
     display: flex;
     align-items: center;
-    background-color: rgb(3, 3, 3);
+    background: linear-gradient(to bottom, #000000 0%, #1a1a1a 30%, #3c3c3c 70%, #5c5c5c 100%);
     border-radius:30px;
-    padding: 0;
+  padding: 10px;
 }
+
+
 .primera img{
     max-width: 25%;
     border-radius: 30px;
@@ -24,6 +36,17 @@
 }
 .fotosAbajoContainer{
 margin-left: 10%;    
+
+}
+.fotosAbajo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.fotosAbajo p{
+    font-family: "Saira Stencil One" !important;
+
+    font-size: clamp(1rem, 2.5vw, 2.2rem);
 }
 .fotosAbajo img{
     padding: 0;
@@ -34,6 +57,7 @@ margin-left: 10%;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
+   
 }
 .primera p{
     font-family: "Saira Stencil One" !important;
