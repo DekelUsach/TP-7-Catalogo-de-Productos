@@ -51,42 +51,60 @@ export default function MultipleItems() {
     }
   };
 
-  if (cargando) return <div className="multipleContainer">Cargando productos destacados...</div>;
+  if (cargando) return (
+    <div className="contenedor-multiple">
+      <div className="cargando">
+        <div className="spinner"></div>
+        <p>Cargando productos destacados...</p>
+      </div>
+    </div>
+  );
 
   return (
-    <Container className='multipleContainer'>
-      <Row>
-        <Col 
-          className='primera' 
+    <div className="contenedor-multiple">
+      <div className="titulo-seccion">
+        <h2>Productos Destacados</h2>
+        <div className="linea-decorativa"></div>
+      </div>
+      
+      <div className="galeria-productos">
+        <div 
+          className="producto-principal" 
           onClick={() => manejarClicProducto(productosDestacados[0])}
         >
-          <img 
-            src={productosDestacados[0]?.images?.[0] || '/src/assets/headphone.jpg'} 
-            alt={productosDestacados[0]?.title || 'Producto destacado'} 
-            className="img-fluid"
-          />
-          <p>{productosDestacados[0]?.title || 'Producto sin nombre'}</p>
-        </Col>
-      </Row>
-      <Row className='fotosAbajoContainer'>
-        {productosDestacados.slice(1, 4).map((producto, indice) => (
-          <Col 
-            key={indice}
-            className='fotosAbajo' 
-            onClick={() => manejarClicProducto(producto)}
-          >
-            
-
+          <div className="imagen-contenedor">
             <img 
-              src={producto?.images?.[0] || '/src/assets/headphone.jpg'} 
-              alt={producto?.title || `Producto ${indice + 1}`} 
-              className="img-fluid"
+              src={productosDestacados[0]?.images?.[0] || '/src/assets/headphone.jpg'} 
+              alt={productosDestacados[0]?.title || 'Producto destacado'} 
             />
-            <p>{producto?.title || 'No se encuentra el nombre'}</p>
-          </Col>
-        ))}
-       
-      </Row>
-    </Container>
+          </div>
+          <div className="info-producto">
+            <h3>{productosDestacados[0]?.title || 'Producto sin nombre'}</h3>
+            <p>${productosDestacados[0]?.price || '0.00'}</p>
+          </div>
+        </div>
+        
+        <div className="productos-secundarios">
+          {productosDestacados.slice(1, 4).map((producto, indice) => (
+            <div 
+              key={indice}
+              className="producto-secundario"
+              onClick={() => manejarClicProducto(producto)}
+            >
+              <div className="imagen-contenedor">
+                <img 
+                  src={producto?.images?.[0] || '/src/assets/headphone.jpg'} 
+                  alt={producto?.title || `Producto ${indice + 1}`} 
+                />
+              </div>
+              <div className="info-producto">
+                <h4>{producto?.title || 'No se encuentra el nombre'}</h4>
+                <p>${producto?.price || '0.00'}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

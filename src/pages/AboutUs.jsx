@@ -5,11 +5,10 @@ import '../styles/AboutUs.css';
 export default function AboutUs() {
   return (
     <Container fluid className="about-us-container">
-      {/* Sección Hero */}
-      <Row className="about-hero">
+      <Row className="ban-about">
         <Col className="hero-content text-center">
-          <h1 className="hero-title">Nuestra Historia</h1>
-          <p className="hero-subtitle">Conectando a las personas con productos excepcionales desde 2015</p>
+          <h1 className="ban-title">Nuestra Historia</h1>
+          <p className="ban-subtitulo">Conectando a las personas con productos excepcionales desde hace mas de 10 años</p>
         </Col>
       </Row>
 
@@ -21,7 +20,7 @@ export default function AboutUs() {
           <p>
             Todo comenzó en un pequeño garaje con una simple idea: crear una experiencia de compra
             en línea que fuera tan personal y confiable como visitar tu tienda local favorita.
-            Lo que empezó como un proyecto de dos amigos apasionados por la tecnología y el diseño
+            Lo que empezó como un proyecto de dos amigos apasionados por la tecnología y el diseño,
             se ha convertido en un destino confiable para miles de clientes.
           </p>
           <p>
@@ -35,7 +34,7 @@ export default function AboutUs() {
       <Row className="section valores">
         <Col className="text-center mb-5">
           <h2>Nuestros Valores Fundamentales</h2>
-          <p className="section-subtitle">Lo que nos guía cada día</p>
+          <p className="section-subtitle ch">Lo que nos guía cada día</p>
         </Col>
         
         <Row className="valores-cards">
@@ -92,49 +91,25 @@ export default function AboutUs() {
       {/* Equipo */}
       <Row className="section equipo">
         <Col className="text-center mb-5">
-          <h2>Conoce a Nuestro Equipo</h2>
-          <p className="section-subtitle">Las personas detrás de la experiencia</p>
+          <h2 className='conoce'>Conoce a Nuestro Equipo</h2>
+          <p className="section-subtitle ch">Las personas detrás de la experiencia</p>
         </Col>
         
         <Row className="equipo-cards">
-          <Col md={4} className="mb-4">
+          <Col md={4} className="mb-4 equipo-card-container">
             <Card className="equipo-card">
               <div className="equipo-foto equipo1"></div>
-              <Card.Body>
-                <Card.Title>Carlos Mendoza</Card.Title>
+              <Card.Body className='card-personas'>
+                <Card.Title>Dekel Usach</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">Fundador & CEO</Card.Subtitle>
                 <Card.Text>
-                  Apasionado por la tecnología y el diseño de experiencias de usuario excepcionales.
+                  Apasionado por la tecnología y el funcionamiento que la gente no vé.
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
           
-          <Col md={4} className="mb-4">
-            <Card className="equipo-card">
-              <div className="equipo-foto equipo2"></div>
-              <Card.Body>
-                <Card.Title>Ana Rodríguez</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Directora de Producto</Card.Subtitle>
-                <Card.Text>
-                  Experta en encontrar los productos perfectos para cada necesidad.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          
-          <Col md={4} className="mb-4">
-            <Card className="equipo-card">
-              <div className="equipo-foto equipo3"></div>
-              <Card.Body>
-                <Card.Title>Miguel Torres</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Director de Operaciones</Card.Subtitle>
-                <Card.Text>
-                  Garantizando que cada pedido llegue a tiempo y en perfecto estado.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+       
         </Row>
       </Row>
 

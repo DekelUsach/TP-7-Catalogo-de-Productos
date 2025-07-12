@@ -1,0 +1,191 @@
+/* Estilos generales para la página de contacto */
+.contacto-contenedor {
+  background-color: rgb(36, 36, 36);
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+/* Banner Superior */
+.banner-superior {
+  background: linear-gradient(rgba(107, 107, 107, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.contenido-banner {
+  padding: 2rem;
+}
+
+.titulo-banner {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitulo-banner {
+  font-size: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ccc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenido principal */
+.contenido-principal {
+  padding: 4rem 0;
+}
+
+.titulo-seccion {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #fff;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.titulo-seccion::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #3498db;
+}
+
+/* Información de contacto */
+.info-contacto {
+  padding: 2rem;
+  background-color: rgba(59, 59, 59, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(59, 59, 59, 0.1);
+}
+
+.descripcion-contacto {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #bbb;
+}
+
+.detalles-contacto {
+  margin-top: 2rem;
+}
+
+.item-contacto {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.icono-contacto {
+  font-size: 1.8rem;
+  margin-right: 1rem;
+  color: #3498db;
+}
+
+.item-contacto h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+
+.item-contacto p {
+  margin: 0;
+  color: #bbb;
+  line-height: 1.5;
+}
+
+/* Formulario de contacto */
+.formulario-contacto {
+  padding: 2rem;
+  background-color: rgba(59, 59, 59, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  font-weight: 600;
+  color: #ddd;
+}
+
+.form-control {
+  background-color: rgba(50, 50, 50, 0.5);
+  border: 1px solid #444;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 5px;
+}
+
+.form-control:focus {
+  background-color: rgba(60, 60, 60, 0.7);
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.boton-enviar {
+  background-color: #3498db;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.boton-enviar:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.alerta-exito {
+  background-color: rgba(46, 204, 113, 0.2);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* Mapa */
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .titulo-banner {
+    font-size: 2.5rem;
+  }
+  
+  .subtitulo-banner {
+    font-size: 1.2rem;
+  }
+  
+  .info-contacto,
+  .formulario-contacto {
+    margin-bottom: 2rem;
+  }
+  
+  .contenido-principal {
+    padding: 2rem 1rem;
+  }
+}
