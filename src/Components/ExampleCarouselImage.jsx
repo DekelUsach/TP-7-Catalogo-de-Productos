@@ -9,10 +9,7 @@ const ExampleCarouselImage = ({ src, alt = 'Banner promocional' }) => {
           src={src} 
           alt={alt} 
           className="imagen-carrousel"
-          onError={(e) => {
-            e.target.onerror = null; 
-            e.target.src = '/src/assets/placeholder-banner.jpg';
-          }}
+        
         />
       </div>
     </div>

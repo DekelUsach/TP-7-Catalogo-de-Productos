@@ -4,7 +4,7 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "./MainLayout.css";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import axios from "axios";
-
+import logo from '../../assets/logo.png';
 export function MainLayout() {
   const [categorias, setCategorias] = useState([]);
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ export function MainLayout() {
         <CContainer fluid>
           <CNavbarBrand>
             <NavLink to="/" className="logo link">
-              <img src="/src/assets/logo.png" alt="Home" width="22" height="24" />
+<img src={logo} alt="Home" width="22" height="24" />
               Home
             </NavLink>
 
