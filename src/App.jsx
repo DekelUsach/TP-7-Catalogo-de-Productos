@@ -10,7 +10,7 @@ import ProductoDetalle from "./pages/ProductoDetalle";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/TP-7-Catalogo-de-Productos/">
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
