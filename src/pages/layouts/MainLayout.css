@@ -204,7 +204,10 @@
     overflow-y: auto !important; 
     z-index: auto !important;
   }
+.side-menu a{
+  color: white !important;
 
+}
   .side-menu .dropdown-menu.show {
     display: block !important;
   }
