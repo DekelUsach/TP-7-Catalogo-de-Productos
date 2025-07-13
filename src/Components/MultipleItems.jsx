@@ -32,7 +32,6 @@ export default function MultipleItems() {
         if (productosAleatorios.length === 0) {
           throw new Error("No se encontraron productos válidos");
         }
-
         setProductosDestacados(productosAleatorios);
       } catch (err) {
         console.error("Error al obtener productos aleatorios:", err);

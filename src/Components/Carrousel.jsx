@@ -3,11 +3,13 @@ import Slider from "react-slick";
 import '../styles/Carrousel.css'
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from './ExampleCarouselImage';
-export default function Carrousel() {
+export default function Carrousel(categorias) {
+
   return(
   <Carousel interval={3000}>
   <Carousel.Item>
-    <ExampleCarouselImage src={'/src/assets/banner2.png'} />
+    <ExampleCarouselImage  src={'/src/assets/banner2.png'}  />
+    
   </Carousel.Item>
 
   <Carousel.Item>

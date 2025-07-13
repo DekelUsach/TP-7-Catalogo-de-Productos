@@ -76,7 +76,7 @@ export default function Contacto() {
                 <div className="icono-contacto">✉️</div>
                 <div>
                   <h3>Email</h3>
-                  <p>contacto@dekelcorp.cl</p>
+                  <p>contacto@dekelcorp.com</p>
                 </div>
               </div>
 

@@ -20,12 +20,11 @@ export default function Home() {
 
     obtenerCategorias();
   }, []);
-  
   console.log(categorias);
   
   return (
     <>
-      <Carrousel />
+      <Carrousel categorias={categorias} />
       <MultipleItems />
     </>
   )
