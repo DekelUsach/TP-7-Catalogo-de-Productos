@@ -1,6 +1,6 @@
-// src/components/SlideCard.js
+
 import React from "react";
-import "./SlideCard.css"; // Opcional: estilos personalizados
+import "./SlideCard.css"; 
 
 function SlideCard({ image, headline, description }) {
   return (
