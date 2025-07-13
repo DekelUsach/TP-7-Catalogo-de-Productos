@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Container, Row, Col, Card, Spinner, Alert, Button, Badge } from "react-bootstrap";
 import "../styles/Productos.css";
 
 export default function Productos() {
@@ -52,44 +53,86 @@ export default function Productos() {
     return () => clearInterval(intervalo);
   }, [productos]);
 
-  if (cargando) return <p>Cargando productos...</p>;
-  if (error) return <p>{error}</p>;
+  if (cargando) return (
+    <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "50vh" }}>
+      <Spinner animation="border" variant="light" />
+      <span className="ms-3">Cargando productos...</span>
+    </div>
+  );
+  
+  if (error) return (
+    <Container className="py-5">
+      <Alert variant="danger" className="text-center">
+        {error}
+      </Alert>
+    </Container>
+  );
 
   return (
-    <div className="productos-container">
-      <h2>Productos en: {categoria}</h2>
-      <div className="productos-grid">
+    <Container className="productos-container py-5">
+      <Row className="mb-4">
+        <Col>
+          <h2 className="titulo-categoria text-center mb-4">
+            <span className="categoria-texto">{categoria}</span>
+            <div className="linea-decorativa"></div>
+          </h2>
+        </Col>
+      </Row>
+      
+      <Row xs={1} md={2} lg={3} xl={4} className="g-4">
         {productos.map(producto => (
-          <div key={producto.id} className="producto-card">
-            <h4>{producto.title}</h4>
-            
-            <p><strong>Precio:</strong> ${producto.price}</p>
-
-            {producto.images.length > 0 ? (
-              <img
-                src={producto.images[imagenProducto[producto.id] || 0]}
-                alt={`${producto.title}`}
-                className="producto-imagen"
-              />
-            ) : (
-              <p>No image available</p>
-            )}
-
-            <p><strong>Marca:</strong> {producto.brand || "No brand"}</p>
-            <p><strong>Rating:</strong> ⭐ {producto.rating}</p>
-
-            <div className="botonAñadir">
-              {/* Acá, hacemos que en el location.state se almacene producto para dsp poder agarrarlo en productodetalle
-              Prefiero hacer esto antes que url por una cuestion de que ya tengo cargado todos los productos y no me conviene hacer una nueva query al server
-              Ademas de que es evidentemente mas rapido ya que está todo cargado en memoria.
-              */}
-              <button onClick={() => navigate("/productoDetalle", { state: { producto } })}> 
-                Ver detalle
-              </button>
-            </div>
-          </div>
+          <Col key={producto.id}>
+            <Card className="producto-card h-100">
+              <div className="imagen-contenedor">
+                {producto.images.length > 0 ? (
+                  <Card.Img 
+                    variant="top" 
+                    src={producto.images[imagenProducto[producto.id] || 0]} 
+                    alt={`${producto.title}`}
+                    className="producto-imagen"
+                  />
+                ) : (
+                  <div className="sin-imagen d-flex align-items-center justify-content-center">
+                    <span>Imagen no disponible</span>
+                  </div>
+                )}
+              </div>
+              
+              <Card.Body className="d-flex flex-column">
+                <Card.Title className="producto-titulo">{producto.title}</Card.Title>
+                
+                <div className="mt-auto">
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <Badge bg="success" className="descuento-badge">
+                      {producto.discountPercentage}% OFF
+                    </Badge>
+                    <div className="producto-rating">
+                      <span>⭐</span> {producto.rating}
+                    </div>
+                  </div>
+                  
+                  <div className="d-flex justify-content-between align-items-center mb-3">
+                    <div className="producto-precio">
+                      ${producto.price}
+                    </div>
+                    <div className="producto-marca">
+                      {producto.brand || "Marca genérica"}
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    variant="outline-light" 
+                    className="w-100 boton-detalle"
+                    onClick={() => navigate("/productoDetalle", { state: { producto } })}
+                  >
+                    Ver detalle
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }

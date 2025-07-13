@@ -1,36 +1,132 @@
 .productos-container {
-  padding: 1rem;
+  background-color: transparent;
+  color: white;
+  min-height: 80vh;
+  padding: 2rem 0;
 }
 
-.productos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
+.titulo-categoria {
+  position: relative;
+  padding-bottom: 1rem;
 }
 
-.producto-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
+.categoria-texto {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.linea-decorativa {
+  width: 100px;
+  height: 2px;
+  background: #fff;
+  margin: 10px auto 0;
+}
+.card-body{
+  background-color: rgb(157, 157, 157) ;
   
+}
+.card-body div{
+  color: black;
+  
+}
+.producto-card {
+  background-color: rgba(59, 59, 59, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(52, 152, 219, 0.5);
+}
+
+.imagen-contenedor {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .producto-imagen {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
-.botonAñadir{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto;
+
+.producto-card:hover .producto-imagen {
+  transform: scale(1.05);
 }
-.botonAñadir button {
-  background-color: #000000;
+
+.sin-imagen {
+  height: 100%;
+  background-color: rgba(80, 80, 80, 0.3);
+  color: #bbb;
+  font-style: italic;
+}
+
+.producto-titulo {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
   color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.producto-precio {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.producto-marca {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.producto-rating {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.descuento-badge {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.boton-detalle {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-width: 2px;
+  border: none !important;
+  background-color: rgb(109, 109, 109) !important;
+}
+
+.boton-detalle:hover {
+  background-color: rgb(191, 191, 191) !important;
+  border-color: #391d1d;
+  color: #3498db;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .titulo-categoria {
+    font-size: 1.8rem;
+  }
+  
+  .imagen-contenedor {
+    height: 180px;
+  }
 }
