@@ -12,7 +12,6 @@ export default function AboutUs() {
         </Col>
       </Row>
 
-      {/* Historia */}
       <Row className="section historia">
         <Col md={6} className="historia-imagen"></Col>
         <Col md={6} className="historia-texto">
@@ -30,7 +29,6 @@ export default function AboutUs() {
         </Col>
       </Row>
 
-      {/* Valores */}
       <Row className="section valores">
         <Col className="text-center mb-5">
           <h2>Nuestros Valores Fundamentales</h2>
@@ -88,7 +86,6 @@ export default function AboutUs() {
         </Row>
       </Row>
 
-      {/* Equipo */}
       <Row className="section equipo">
         <Col className="text-center mb-5">
           <h2 className='conoce'>Conoce a Nuestro Equipo</h2>
@@ -113,7 +110,6 @@ export default function AboutUs() {
         </Row>
       </Row>
 
-      {/* Compromiso */}
       <Row className="section compromiso">
         <Col className="text-center">
           <h2>Nuestro Compromiso</h2>

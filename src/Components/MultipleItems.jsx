@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/MultipleItems.css';
+import { NavLink } from 'react-router';
+import { Nav } from 'react-bootstrap';
 
 export default function MultipleItems() {
   const [productosDestacados, setProductosDestacados] = useState([]);
   const [cargando, setCargando] = useState(true);
 
-  const navegar = useNavigate();
 
   useEffect(() => {
     const obtenerProductosAleatorios = async () => {
@@ -44,11 +44,7 @@ export default function MultipleItems() {
     obtenerProductosAleatorios();
   }, []);
 
-  const manejarClicProducto = (producto) => {
-    if (producto) {
-      navegar("/productoDetalle", { state: { producto } });
-    }
-  };
+
 
   if (cargando) return (
     <div className="contenedor-multiple">
@@ -67,9 +63,9 @@ export default function MultipleItems() {
       </div>
       
       <div className="galeria-productos">
+      <NavLink to={`/productoDetalle/${productosDestacados[0].id}`}>
         <div 
           className="producto-principal" 
-          onClick={() => manejarClicProducto(productosDestacados[0])}
         >
           <div className="imagen-contenedor">
             <img 
@@ -82,14 +78,14 @@ export default function MultipleItems() {
             <p>${productosDestacados[0]?.price || '0.00'}</p>
           </div>
         </div>
-        
+        </NavLink>
         <div className="productos-secundarios">
           {productosDestacados.slice(1, 4).map((producto, indice) => (
+            <NavLink to={`/productoDetalle/${producto.id}`} key={indice}>
+
             <div 
               key={indice}
-              className="producto-secundario"
-              onClick={() => manejarClicProducto(producto)}
-            >
+              className="producto-secundario"            >
               <div className="imagen-contenedor">
                 <img 
                   src={producto?.images?.[0] || '/src/assets/headphone.jpg'} 
@@ -101,6 +97,7 @@ export default function MultipleItems() {
                 <p>${producto?.price || '0.00'}</p>
               </div>
             </div>
+            </NavLink>
           ))}
         </div>
       </div>

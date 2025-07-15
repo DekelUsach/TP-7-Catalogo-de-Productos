@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Container, Row, Col, Card, Spinner, Alert, Button, Badge } from "react-bootstrap";
+import { Container, Row, Col, Card, Spinner, Alert, Button, Badge, NavLink } from "react-bootstrap";
 import "../styles/Productos.css";
 
 export default function Productos() {
   const { categoria } = useParams();
-  const navigate = useNavigate();
-
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
@@ -80,7 +78,7 @@ export default function Productos() {
       </Row>
       
       <Row xs={1} md={2} lg={3} xl={4} className="g-4">
-        {productos.map(producto => (
+        {productos.map((producto) => (
           <Col key={producto.id}>
             <Card className="producto-card h-100">
               <div className="imagen-contenedor">
@@ -123,8 +121,9 @@ export default function Productos() {
                   <Button 
                     variant="outline-light" 
                     className="w-100 boton-detalle"
-                    onClick={() => navigate("/productoDetalle", { state: { producto } })}
-                  >
+                  // Propio de react-bootstrap, tampoco puedo usar navlink to
+                    href={`/TP-7-Catalogo-de-Productos/productoDetalle/${producto.id}`}
+                    >
                     Ver detalle
                   </Button>
                 </div>

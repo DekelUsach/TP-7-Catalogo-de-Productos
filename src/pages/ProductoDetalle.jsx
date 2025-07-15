@@ -1,14 +1,39 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState} from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+
 import { Container, Row, Col, Image, Button, Badge } from 'react-bootstrap';
 import "../styles/ProductoDetalle.css";
+import Cargando from "../Components/Cargando";
 
 export default function ProductoDetalle() {
-  const location = useLocation();
-  // Acá lo que hago es obtener el producto del estado de antes desde la pagina de productos y puedo operar con esto mas abajo
-  const producto = location.state?.producto; //este signo de pregunta es unicamente para evitar errores si no hay producto, en vez de tirar un error, devuelve undefined
+    const { id } = useParams();
+    const [producto, setProducto] = useState(null);
+    const [cargando, setCargando] = useState(true);
+    const [error, setError] = useState(null);
+    
+  useEffect(() => {
+    const traerProducto = async () => {
+      try {
+        const res = await axios.get(`https://dummyjson.com/products/${id}`);
+        setProducto(res.data);
+      } catch (err) {
+        console.error(err);
+        setError("Error al cargar el producto");
+      } finally {
+        setCargando(false);
+      }
+    };
 
+    traerProducto();
+  }, [id]);
+  if (cargando) return (
+   <Cargando/>
+  );
+  
+  if(error) return <p>Esto no esta funcionando</p>
   if (!producto) return <p className="text-center mt-5">No se encontró el producto ):</p>;
+  
 
   return (
     <Container fluid className="p-0 m-0 hero" >
