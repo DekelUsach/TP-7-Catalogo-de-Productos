@@ -46,7 +46,7 @@ export function MainLayout() {
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
-
+// slug hace referencia a la parte final de la url pero en codigo.
   const handleCategoriaClick = (slug) => {
     navigate(`/productos/${slug}`);
   };

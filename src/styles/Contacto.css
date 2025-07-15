@@ -38,7 +38,6 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Contenido principal */
 .contenido-principal {
   padding: 4rem 0;
 }
@@ -62,7 +61,6 @@
   background-color: #3498db;
 }
 
-/* Información de contacto */
 .info-contacto {
   padding: 2rem;
   background-color: rgba(59, 59, 59, 0.3);
@@ -164,10 +162,8 @@ textarea.form-control {
   border-radius: 8px;
 }
 
-/* Mapa */
 
 
-/* Responsive */
 @media (max-width: 768px) {
   .titulo-banner {
     font-size: 2.5rem;

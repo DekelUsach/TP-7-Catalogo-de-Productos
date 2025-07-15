@@ -1,4 +1,3 @@
-/* Layout principal */
 .app-layout {
   display: flex;
   flex-direction: column;
@@ -67,9 +66,7 @@
   margin-top: auto; 
 }
 
-/* Tipografías */
 
-/* ---------------- tus estilos previos sin cambios ---------------- */
 
 .app-layout {
   display: flex;
