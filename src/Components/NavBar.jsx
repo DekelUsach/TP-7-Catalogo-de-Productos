@@ -4,6 +4,7 @@ import { NavLink, Navigate, Outlet } from "react-router-dom";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import axios from "axios";
 import logo from '../assets/logo.png';
+import CartWidget from "./CartWidget";
 
 export default function NavBar() {
     const [categorias, setCategorias] = useState([]);
@@ -77,6 +78,7 @@ export default function NavBar() {
           Contacto
         </NavLink>
       </div>
+      <CartWidget/>
     </CContainer>
   </CNavbar>
   )
