@@ -12,6 +12,9 @@
   padding: 8px;
   border-radius: 50%;
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-button:hover {
@@ -28,95 +31,41 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #dc3545;
-  color: white;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  font-size: 12px;
+  transform: translate(50%, -50%);
+  font-size: 10px;
+  padding: 2px 6px;
+  min-width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
 }
 
-.cart-dropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
+/* Estilos para el dropdown de Bootstrap */
+.cart-dropdown .dropdown-menu {
   width: 350px;
   max-height: 500px;
-  background-color: white;
+  overflow-y: auto;
+  padding: 0;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  overflow: hidden;
-  animation: slideDown 0.3s ease;
 }
+.cart-dropdown::after{
+  display: none !important;
+  content: none !important;
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
-
-.cart-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
+.cart-dropdown .dropdown-header {
   background-color: #f8f9fa;
   border-bottom: 1px solid #e9ecef;
+  padding: 15px 20px;
 }
 
-.cart-header h6 {
+.cart-dropdown .dropdown-header h6 {
   margin: 0;
   color: #333;
   font-weight: 600;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #666;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.close-btn:hover {
-  background-color: #e9ecef;
-  color: #333;
-}
-
-.empty-cart {
-  padding: 40px 20px;
-  text-align: center;
-  color: #666;
-}
-
-.empty-cart p {
-  margin: 0;
-  font-size: 16px;
-}
-
-.cart-items {
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 0;
 }
 
 .cart-item {
@@ -126,6 +75,7 @@
   padding: 15px 20px;
   border-bottom: 1px solid #f1f3f4;
   transition: background-color 0.3s ease;
+  min-height: 80px;
 }
 
 .cart-item:hover {
@@ -196,76 +146,47 @@
   color: #721c24;
 }
 
-.cart-footer {
-  padding: 20px;
+.cart-total {
   background-color: #f8f9fa;
   border-top: 1px solid #e9ecef;
-}
-
-.cart-total {
   text-align: center;
-  margin-bottom: 15px;
   font-size: 18px;
   color: #333;
+  padding: 15px 20px;
+}
+.cart-total strong{
+  color: black;
 }
 
 .checkout-btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 600;
+  background-color: #28a745 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease !important;
+  text-align: center !important;
+  padding: 12px 20px !important;
+  margin: 1% !important;
+  max-width: 97% !important;
+  display: flex !important;
+  justify-content: center !important;  
 }
 
-.checkout-btn:hover {
-  background-color: #218838;
-}
 
-.checkout-btn:active {
-  transform: translateY(1px);
-}
 
-.cart-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-}
 
-/* Scrollbar personalizado para el carrito */
-.cart-items::-webkit-scrollbar {
-  width: 6px;
-}
-
-.cart-items::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.cart-items::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 3px;
-}
-
-.cart-items::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .cart-dropdown {
+  .cart-dropdown .dropdown-menu {
     width: 300px;
     right: -50px;
   }
   
   .cart-item {
     padding: 12px 15px;
+    min-height: 70px;
   }
   
   .item-image {

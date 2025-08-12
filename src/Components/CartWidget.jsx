@@ -1,107 +1,88 @@
-import React, { useState } from "react";
+import React from "react";
 import { useCart } from "../context/UseCart";
+import { NavDropdown, Badge } from "react-bootstrap";
 import carrito from "../assets/carrito.png";
 import "../styles/Carrito-btn.css";
 
 export default function CartWidget() {
   const { cartItems, removeFromCart, getTotal } = useCart();
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleRemoveItem = (id) => {
+  const removerItem = (id) => {
     removeFromCart(id);
   };
 
   return (
     <div className="cart-widget">
-      <button 
-        className="cart-button" 
-        onClick={toggleDropdown}
-        aria-label="Abrir carrito"
-      >
-        <img src={carrito} alt="Carrito" width="22" height="24" />
-        {cartItems.length > 0 && (
-          <span className="cart-badge">{cartItems.length}</span>
-        )}
-      </button>
-
-      {isOpen && (
-        <div className="cart-dropdown">
-          <div className="cart-header">
-            <h6>Carrito de Compras</h6>
-            <button 
-              className="close-btn"
-              onClick={() => setIsOpen(false)}
-              aria-label="Cerrar carrito"
-            >
-              ×
-            </button>
+      <NavDropdown
+        title={
+          <div className="cart-button">
+            <img src={carrito} alt="Carrito" width="22" height="24" />
+            {cartItems.length > 0 && (
+              <Badge bg="danger" className="cart-badge">
+                {cartItems.length}
+              </Badge>
+            )}
           </div>
+        }
+        id="cart-dropdown"
+        className="cart-dropdown"
+      >
+        <NavDropdown.Header>
+          <h6 className="mb-0">Carrito de Compras</h6>
+        </NavDropdown.Header>
 
-          {cartItems.length === 0 ? (
-            <div className="empty-cart">
-              <p>El carrito está vacío</p>
-            </div>
-          ) : (
-            <>
-              <div className="cart-items">
-                {cartItems.map((item, index) => {
-                  // Validar que el item tenga las propiedades necesarias
-                  if (!item || !item.id || !item.title) {
-                    return null;
-                  }
-                  
-                  return (
-                    <div key={`${item.id}-${index}`} className="cart-item">
-                      <div className="item-info">
-                        <img 
-                          src={item.thumbnail || item.images?.[0] || ''} 
-                          alt={item.title || 'Producto'} 
-                          className="item-image"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                          }}
-                        />
-                        <div className="item-details">
-                          <h6 className="item-title">{item.title}</h6>
-                          <p className="item-price">${typeof item.price === 'number' ? item.price.toFixed(2) : '0.00'}</p>
-                        </div>
-                      </div>
-                      <button
-                        className="remove-btn"
-                        onClick={() => handleRemoveItem(item.id)}
-                        aria-label={`Eliminar ${item.title}`}
-                      >
-                        ×
-                      </button>
+        {cartItems.length === 0 ? (
+          <NavDropdown.Item disabled>
+            <p className="mb-0 text-muted">El carrito está vacío</p>
+          </NavDropdown.Item>
+        ) : (
+          <>
+            {cartItems.map((item, index) => {
+             
+              
+              return (
+                <NavDropdown.Item key={`${item.id}-${index}`} className="cart-item">
+                  <div className="item-info">
+                    <img 
+                      src={item.thumbnail || item.images?.[0] || ''} 
+                      alt={item.title || 'Producto'} 
+                      className="item-image"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    <div className="item-details">
+                      <h6 className="item-title">{item.title}</h6>
+                      <p className="item-price">${typeof item.price === 'number' ? item.price.toFixed(2) : '0.00'}</p>
                     </div>
-                  );
-                })}
-              </div>
-
-              <div className="cart-footer">
-                <div className="cart-total">
-                  <strong>Total: ${typeof getTotal() === 'number' ? getTotal().toFixed(2) : '0.00'}</strong>
-                </div>
-                <button className="checkout-btn">
-                  Finalizar Compra
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      )}
-
-      {/* Overlay para cerrar el dropdown al hacer clic fuera */}
-      {isOpen && (
-        <div 
-          className="cart-overlay" 
-          onClick={() => setIsOpen(false)}
-        />
-      )}
+                  </div>
+                  <button
+                    className="remove-btn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      removerItem(item.id);
+                      // Funcion que sirve para que no se cierr el dropdown cuando le das a eliminar en un dropdownItem
+                      e.stopPropagation() 
+                    }}
+                  >
+                    ×
+                  </button>
+                </NavDropdown.Item>
+              );
+            })}
+            
+            <NavDropdown.Divider />
+            
+            <NavDropdown.Item disabled className="cart-total">
+              <strong>Total: ${ getTotal()}</strong>
+            </NavDropdown.Item>
+            
+            <NavDropdown.Item className="checkout-btn">
+              Finalizar Compra
+            </NavDropdown.Item>
+          </>
+        )}
+      </NavDropdown>
     </div>
   );
 }
