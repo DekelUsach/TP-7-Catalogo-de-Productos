@@ -6,9 +6,9 @@ import { MainLayout } from "./pages/layouts/MainLayout.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CarritoProvider from "./context/CartContext.jsx";
 createRoot(document.getElementById("root")).render(
-  <CarritoProvider>
-    <StrictMode>
+  <StrictMode>
+    <CarritoProvider>
       <App />
-    </StrictMode>
-  </CarritoProvider>
+    </CarritoProvider>
+  </StrictMode>
 );

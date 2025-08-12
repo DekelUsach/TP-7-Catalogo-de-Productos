@@ -5,13 +5,14 @@ import { useParams } from "react-router-dom";
 import { Container, Row, Col, Image, Button, Badge } from 'react-bootstrap';
 import "../styles/ProductoDetalle.css";
 import Cargando from "../Components/Cargando";
+import { useCart } from "../context/UseCart";
 
 export default function ProductoDetalle() {
     const { id } = useParams();
     const [producto, setProducto] = useState(null);
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(null);
-    
+const {addToCart} = useCart();    
   useEffect(() => {
     const traerProducto = async () => {
       try {
@@ -89,7 +90,7 @@ export default function ProductoDetalle() {
           </Row>
 
           <div className="w-100 text-center text-md-start mb-4 row agregar-carrito ">
-            <Button variant="primary" size="lg" className="w-100 ">
+            <Button onClick={() => addToCart(producto)} variant="primary" size="lg" className="w-100 ">
               Agregar al carrito
             </Button>
           </div>

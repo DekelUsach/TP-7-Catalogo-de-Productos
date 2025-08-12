@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Container, Row, Col, Card, Spinner, Alert, Button, Badge, NavLink } from "react-bootstrap";
 import "../styles/Productos.css";
+import { useCart } from "../context/UseCart";
 
 export default function Productos() {
   const { categoria } = useParams();
@@ -10,6 +11,7 @@ export default function Productos() {
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
   const [imagenProducto, setImagenProducto] = useState({});
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const obtenerProductos = async () => {
@@ -113,19 +115,27 @@ export default function Productos() {
                     <div className="producto-precio">
                       ${producto.price}
                     </div>
-                    <div className="producto-marca">
+                    <div className="producton-marca">
                       {producto.brand || "Marca genérica"}
                     </div>
                   </div>
                   
-                  <Button 
-                    variant="outline-light" 
-                    className="w-100 boton-detalle"
-                  // Propio de react-bootstrap, tampoco puedo usar navlink to
-                    href={`/TP-7-Catalogo-de-Productos/productoDetalle/${producto.id}`}
+                  <div className="d-flex gap-2">
+                    <Button 
+                      variant="success" 
+                      className="flex-fill"
+                      onClick={() => addToCart(producto)}
                     >
-                    Ver detalle
-                  </Button>
+                      Agregar al carrito
+                    </Button>
+                    <Button 
+                      variant="outline-light" 
+                      className="flex-fill boton-detalle"
+                      href={`/TP-7-Catalogo-de-Productos/productoDetalle/${producto.id}`}
+                    >
+                      Ver detalle
+                    </Button>
+                  </div>
                 </div>
               </Card.Body>
             </Card>

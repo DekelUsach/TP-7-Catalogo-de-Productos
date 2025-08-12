@@ -1,37 +1,58 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect} from "react";
 
-const CarritoContext = createContext();
+const CartContext = createContext();
 
-const CarritoProvider = (props) => {
-  const [cartItems, setCartItems] = useState([]);
-const addToCart = (producto) => {
-setCartItems([...cartItems, producto])
-}
-const removeFromCart = (idProducto) =>{ 
-//  remover del carrito
-  console.log(idProducto)
-}
-const clearCart = () => {
-  setCartItems([])
-}
-const getTotal = () => {
-  // Devolver el total de la compra
-}
+const CarritoProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState(() => {
+      const itemsGuardados = localStorage.getItem("cartItems");
+      
+      return itemsGuardados ? JSON.parse(itemsGuardados) : [];
+
+  });
+
+  useEffect(() => {
+   
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+   
+  }, [cartItems]);
+
+  const addToCart = (producto) => {
+    setCartItems((prev) => [...prev, producto]);
+  };
+
+  const removeFromCart = (idProducto) => {
+    setCartItems((prev) => prev.filter((p) => p.id !== idProducto));
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
+  
+
+  const getTotal = () => {
+    if (cartItems.length === 0) return 0;
+    return cartItems.reduce((precioTotalItems, itemActual) => {
+      const precio = typeof itemActual.price === 'number' ? itemActual.price : 0;
+      return precioTotalItems + precio;
+    }, 0);
+  };
+
   return (
-    <CarritoContext.Provider
+    <CartContext.Provider
       value={{
         cartItems,
         setCartItems,
         addToCart,
         removeFromCart,
         clearCart,
-        getTotal
+        getTotal,
       }}
     >
-      {props.children}
-    </CarritoContext.Provider>
-
+      {children}
+    </CartContext.Provider>
   );
 };
 
+
+export { CartContext };
 export default CarritoProvider;
