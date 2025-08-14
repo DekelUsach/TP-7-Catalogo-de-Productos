@@ -1,12 +1,13 @@
 import React from "react";
 import { useCart } from "../context/UseCart";
-import { NavDropdown, Badge } from "react-bootstrap";
+import { NavDropdown, Badge, NavLink } from "react-bootstrap";
 import carrito from "../assets/carrito.png";
 import "../styles/Carrito-btn.css";
+import { useNavigate } from "react-router";
 
 export default function CartWidget() {
   const { cartItems, removeFromCart, getTotal } = useCart();
-
+  const navigate = useNavigate()
   const removerItem = (id) => {
     removeFromCart(id);
   };
@@ -38,22 +39,26 @@ export default function CartWidget() {
         ) : (
           <>
             {cartItems.map((item, index) => {
-             
-              
               return (
-                <NavDropdown.Item key={`${item.id}-${index}`} className="cart-item">
+                <NavDropdown.Item
+                  key={`${item.id}-${index}`}
+                  className="cart-item"
+                >
                   <div className="item-info">
-                    <img 
-                      src={item.thumbnail || item.images?.[0] || ''} 
-                      alt={item.title || 'Producto'} 
+                    <img
+                      src={item.thumbnail || item.images?.[0] || ""}
+                      alt={item.title || "Producto"}
                       className="item-image"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
+                     
                     />
                     <div className="item-details">
                       <h6 className="item-title">{item.title}</h6>
-                      <p className="item-price">${typeof item.price === 'number' ? item.price.toFixed(2) : '0.00'}</p>
+                      <p className="item-price">
+                        $
+                        {typeof item.price === "number"
+                          ? item.price.toFixed(2)
+                          : "0.00"}
+                      </p>
                     </div>
                   </div>
                   <button
@@ -62,7 +67,7 @@ export default function CartWidget() {
                       e.preventDefault();
                       removerItem(item.id);
                       // Funcion que sirve para que no se cierr el dropdown cuando le das a eliminar en un dropdownItem
-                      e.stopPropagation() 
+                      e.stopPropagation();
                     }}
                   >
                     ×
@@ -70,14 +75,16 @@ export default function CartWidget() {
                 </NavDropdown.Item>
               );
             })}
-            
+
             <NavDropdown.Divider />
-            
+
             <NavDropdown.Item disabled className="cart-total">
-              <strong>Total: ${ getTotal()}</strong>
+              <strong>Total: ${getTotal()}</strong>
             </NavDropdown.Item>
-            
-            <NavDropdown.Item className="checkout-btn">
+            <NavDropdown.Item
+                onClick={() => navigate("/productos/finalizarCompra")}
+              className="checkout-btn"
+            >
               Finalizar Compra
             </NavDropdown.Item>
           </>

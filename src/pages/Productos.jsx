@@ -9,7 +9,6 @@ export default function Productos() {
   const { categoria } = useParams();
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
-  const [error, setError] = useState(null);
   const [imagenProducto, setImagenProducto] = useState({});
   const { addToCart } = useCart();
 
@@ -27,7 +26,6 @@ export default function Productos() {
 
       } catch (err) {
         console.error("Error al obtener productos:", err);
-        setError("No se pudieron cargar los productos ):");
       } finally {
         setCargando(false);
       }
@@ -60,13 +58,6 @@ export default function Productos() {
     </div>
   );
   
-  if (error) return (
-    <Container className="py-5">
-      <Alert variant="danger" className="text-center">
-        {error}
-      </Alert>
-    </Container>
-  );
 
   return (
     <Container className="productos-container py-5">

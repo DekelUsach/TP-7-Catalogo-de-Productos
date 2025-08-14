@@ -7,6 +7,8 @@ import QuienesSomos from "./pages/AboutUs";
 import Contacto from "./pages/Contacto";
 import AboutUs from "./pages/AboutUs";
 import ProductoDetalle from "./pages/ProductoDetalle";
+import FinalizarCompra from "./pages/FinalizarCompra";
+import CompraTerminada from "./pages/CompraTerminada";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="contacto" element={<Contacto />} />
           <Route path="productoDetalle/:id" element={<ProductoDetalle />} />
+          <Route path="productos/finalizarCompra" element={<FinalizarCompra/>} />
+          <Route path="productos/finalizarCompra/compraTerminada" element={<CompraTerminada/>} />
+
           <Route path="*" element={<h1>404</h1>} />
         </Route>
       </Routes>

@@ -14,6 +14,7 @@ const CarritoProvider = ({ children }) => {
 
   const addToCart = (producto) => {
     setCartItems((itemsGuardados) => [...itemsGuardados, producto]);
+    console.log(cartItems)
   };
 
   const removeFromCart = (idProducto) => {
