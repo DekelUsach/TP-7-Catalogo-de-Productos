@@ -122,7 +122,7 @@ export default function Productos() {
                     <Button 
                       variant="outline-light" 
                       className="flex-fill boton-detalle"
-                      href={`/TP-7-Catalogo-de-Productos/productoDetalle/${producto.id}`}
+                      href={`/productoDetalle/${producto.id}`}
                     >
                       Ver detalle
                     </Button>
