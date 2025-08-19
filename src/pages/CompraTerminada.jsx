@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import '../styles/CompraTerminada.css';
-
+import "../styles/CompraTerminada.css"
 export default function CompraTerminada() {
   return (
     <div className="compra-terminada-container">
@@ -16,7 +15,7 @@ export default function CompraTerminada() {
         <Row className="justify-content-center text-center">
           <Col md={8}>
             <p className="mensaje">
-              Gracias por confiar en nosotros. Te enviaremos un correo con todos los detalles de tu pedido.
+              Volverás a la home
             </p>
             <Button
               as={Link}

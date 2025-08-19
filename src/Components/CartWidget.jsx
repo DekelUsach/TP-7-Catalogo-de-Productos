@@ -55,7 +55,7 @@ export default function CartWidget() {
                       <h6 className="item-title">{item.title}</h6>
                       <p className="item-price">
                         $
-                        {typeof item.price === "number"
+                        { item.price === "number"
                           ? item.price.toFixed(2)
                           : "0.00"}
                       </p>
@@ -66,7 +66,7 @@ export default function CartWidget() {
                     onClick={(e) => {
                       e.preventDefault();
                       removerItem(item.id);
-                      // Funcion que sirve para que no se cierr el dropdown cuando le das a eliminar en un dropdownItem
+                      // funcion que sirve para que no se cierr el dropdown cuando le das a eliminar en un dropdownItem
                       e.stopPropagation();
                     }}
                   >

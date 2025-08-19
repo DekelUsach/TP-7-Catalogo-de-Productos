@@ -44,7 +44,7 @@ const CarritoProvider = ({ children }) => {
     cartItems.forEach((productoActual) => {
       total += productoActual.price;
     });
-    return total.toFixed(2);
+    return total.toFixed(2); //es para mostrar solo 2 decimales
   };
 
   return (
