@@ -12,7 +12,7 @@ import CompraTerminada from "./pages/CompraTerminada";
 
 function App() {
   return (
-    <BrowserRouter basename="/TP-7-Catalogo-de-Productos/">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
