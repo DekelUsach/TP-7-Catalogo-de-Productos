@@ -4,7 +4,7 @@ import { NavDropdown, Badge, NavLink } from "react-bootstrap";
 import carrito from "../assets/carrito.png";
 import "../styles/Carrito-btn.css";
 import { useNavigate } from "react-router";
-
+import propType from "prop-type";
 export default function CartWidget() {
   const { cartItems, removeFromCart, getTotal } = useCart();
   const navigate = useNavigate()
