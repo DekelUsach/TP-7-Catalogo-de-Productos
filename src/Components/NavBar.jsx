@@ -4,6 +4,7 @@ import { NavLink, Navigate, Outlet } from "react-router-dom";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import axios from "axios";
 import logo from '../assets/logo.png';
+import CartWidget from "./CartWidget";
 
 export default function NavBar() {
     const [categorias, setCategorias] = useState([]);
@@ -46,7 +47,7 @@ export default function NavBar() {
         <NavDropdown className="dropdown" title="Productos" menuVariant="dark">
           {categorias.map((cat, i) => (
             // tengo que usar href si o si porque el componente lo usa por defecto, no puedo agregar navlink to
-          <NavDropdown.Item key={i} href={`/TP-7-Catalogo-de-Productos/productos/${cat.slug}`}>
+          <NavDropdown.Item key={i} href={`/productos/${cat.slug}`}>
           {cat.name}
         </NavDropdown.Item>
           ))}
@@ -77,6 +78,7 @@ export default function NavBar() {
           Contacto
         </NavLink>
       </div>
+      <CartWidget/>
     </CContainer>
   </CNavbar>
   )
