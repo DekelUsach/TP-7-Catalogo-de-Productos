@@ -5,24 +5,47 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import axios from "axios";
 import logo from '../assets/logo.png';
 import CartWidget from "./CartWidget.js";
+import * as z from "zod";
+
+const CategoriaSchema = z.object({
+  name: z.string(),
+  slug: z.string(),
+  url: z.string().min(1),
+});
+
+const CategoriasSchema = z.array(CategoriaSchema);
+
+type Category = z.infer<typeof CategoriaSchema>;
 
 export default function NavBar() {
     const [categorias, setCategorias] = useState<Category[]>([]);
     const toggleRef = useRef(null);
-    const sideMenuRef = useRef(null);
-  type Category = {
-    name: string;
-    slug: string;
-    url: string;
-  };
+    const sideMenuRef = useRef(null); 
     useEffect(() => {
       (async () => {
         try {
           const { data } = await axios.get("https://dummyjson.com/products/categories");
-          console.log(data)
-          setCategorias(data);
+          const parseResult = CategoriasSchema.safeParse(data);
+
+          if (parseResult.success) {
+            setCategorias(parseResult.data);
+            return;
+          }
+
+          if (Array.isArray(data) && data.every((item) => typeof item === "string")) {
+            const categoriasTransformadas = data.map((categoria: string) => ({
+              name: categoria,
+              slug: categoria,
+              url: `/productos/${categoria}`,
+            }));
+            setCategorias(categoriasTransformadas);
+            return;
+          }
+
+          throw new Error("Formato de categorías inválido");
         } catch (error) {
           console.error("Error al obtener las categorías:", error);
+          setCategorias([]);
         }
       })();
     }, []);

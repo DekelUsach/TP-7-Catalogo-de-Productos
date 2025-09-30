@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import FormContacto from '../Components/FormContacto';
+import FormContacto from './FormContacto.js';
 
 export default function InfoContacto() {
   return (

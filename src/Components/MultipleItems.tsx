@@ -7,7 +7,7 @@ import '../styles/MultipleItems.css';
 import { NavLink } from 'react-router';
 import { Nav } from 'react-bootstrap';
 import { Product } from '../context/CartContext';
-
+import * as z from 'zod';
 export default function MultipleItems() {
   const [productosDestacados, setProductosDestacados] = useState<Product[]>([]);
   const [cargando, setCargando] = useState(true);
