@@ -5,22 +5,38 @@ import { Container, Row, Col, Card, Spinner, Alert, Button, Badge, NavLink } fro
 import "../styles/Productos.css";
 import { useCart } from "../context/UseCart";
 
+type Product = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
+};
+
+type IndicesPorProducto = Record<number, number>;
+
 export default function Productos() {
   const { categoria } = useParams();
-  const [productos, setProductos] = useState([]);
+  const [productos, setProductos] = useState<Product[]>([]);
   const [cargando, setCargando] = useState(true);
-  const [imagenProducto, setImagenProducto] = useState({});
+  const [imagenProducto, setImagenProducto] = useState<IndicesPorProducto>({});
   const { addToCart } = useCart();
-
   useEffect(() => {
     const obtenerProductos = async () => {
       try {
         const response = await axios.get(`https://dummyjson.com/products/category/${categoria}`);
-        setProductos(response.data.products);
+        const productosObtenidos = response.data.products as Product[];
+        setProductos(productosObtenidos);
 
-        const indicesIniciales = {};
-        response.data.products.forEach(p => {
-          indicesIniciales[p.id] = 0;
+        const indicesIniciales: IndicesPorProducto = {};
+        productosObtenidos.forEach((producto) => {
+          indicesIniciales[producto.id] = 0;
         });
         setImagenProducto(indicesIniciales);
 
@@ -36,12 +52,13 @@ export default function Productos() {
 
   useEffect(() => {
     const intervalo = setInterval(() => {
-      setImagenProducto(indicesAnteriores => {
+      setImagenProducto((indicesAnteriores) => {
         const nuevosIndices = { ...indicesAnteriores };
-        productos.forEach(productoActual => {
+        productos.forEach((productoActual) => {
           const total = productoActual.images.length;
           if (total > 0) {
-            nuevosIndices[productoActual.id] = (indicesAnteriores[productoActual.id] + 1) % total;
+            const anterior = indicesAnteriores[productoActual.id] ?? 0;
+            nuevosIndices[productoActual.id] = (anterior + 1) % total;
           }
         });
         return nuevosIndices;

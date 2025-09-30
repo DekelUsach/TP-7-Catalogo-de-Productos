@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 export default function CartWidget() {
   const { cartItems, removeFromCart, getTotal } = useCart();
   const navigate = useNavigate()
-  const removerItem = (id) => {
+  const removerItem = (id: number) => {
     removeFromCart(id);
   };
 
@@ -55,7 +55,7 @@ export default function CartWidget() {
                       <h6 className="item-title">{item.title}</h6>
                       <p className="item-price">
                         $
-                        { item.price === "number"
+                        { typeof item.price === "number"
                           ? item.price.toFixed(2)
                           : "0.00"}
                       </p>

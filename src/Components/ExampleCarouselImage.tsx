@@ -1,8 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../styles/Carrousel.css';
 
-const ExampleCarouselImage = ({ src, alt = 'Banner promocional' }) => {
+interface ExampleCarouselImageProps {
+  src: string;
+  alt?: string;
+}
+
+const ExampleCarouselImage: React.FC<ExampleCarouselImageProps> = ({ src, alt = 'Banner promocional' }) => {
   return (
     <div className="contenedor-imagen-carrousel">
       <div className="mascara-imagen">
@@ -15,11 +19,6 @@ const ExampleCarouselImage = ({ src, alt = 'Banner promocional' }) => {
       </div>
     </div>
   );
-};
-
-ExampleCarouselImage.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string,
 };
 
 export default ExampleCarouselImage;

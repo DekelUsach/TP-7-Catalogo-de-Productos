@@ -6,16 +6,16 @@ import axios from 'axios';
 import '../styles/MultipleItems.css';
 import { NavLink } from 'react-router';
 import { Nav } from 'react-bootstrap';
+import { Product } from '../context/CartContext';
 
 export default function MultipleItems() {
-  const [productosDestacados, setProductosDestacados] = useState([]);
+  const [productosDestacados, setProductosDestacados] = useState<Product[]>([]);
   const [cargando, setCargando] = useState(true);
 
 
   useEffect(() => {
     const obtenerProductosAleatorios = async () => {
       try {
-        setCargando(true);
       
         // traemos 100 productos aleatorios y de esos 100 hacemos un sort y agarramos los primeros 4.
         const { data } = await axios.get('https://dummyjson.com/products?limit=100');
@@ -55,6 +55,20 @@ export default function MultipleItems() {
     </div>
   );
 
+  const productoPrincipal = productosDestacados[0];
+
+  if (!productoPrincipal) {
+    return (
+      <div className="contenedor-multiple">
+        <div className="titulo-seccion">
+          <h2>Productos Destacados</h2>
+          <div className="linea-decorativa"></div>
+        </div>
+        <p>No hay productos destacados disponibles en este momento.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="contenedor-multiple">
       <div className="titulo-seccion">
@@ -63,19 +77,19 @@ export default function MultipleItems() {
       </div>
       
       <div className="galeria-productos">
-      <NavLink to={`/productoDetalle/${productosDestacados[0].id}`}>
+      <NavLink to={`/productoDetalle/${productoPrincipal.id}`}>
         <div 
           className="producto-principal" 
         >
           <div className="imagen-contenedor">
             <img 
-              src={productosDestacados[0]?.images?.[0] || '/src/assets/headphone.jpg'} 
-              alt={productosDestacados[0]?.title || 'Producto destacado'} 
+              src={productoPrincipal?.images?.[0] || '/src/assets/headphone.jpg'} 
+              alt={productoPrincipal?.title || 'Producto destacado'} 
             />
           </div>
           <div className="info-producto">
-            <h3>{productosDestacados[0]?.title || 'Producto sin nombre'}</h3>
-            <p>${productosDestacados[0]?.price || '0.00'}</p>
+            <h3>{productoPrincipal?.title || 'Producto sin nombre'}</h3>
+            <p>${productoPrincipal?.price || '0.00'}</p>
           </div>
         </div>
         </NavLink>

@@ -1,4 +1,4 @@
-import { useCart } from "../context/UseCart";
+import { useCart } from "../context/UseCart.js";
 import { useNavigate } from "react-router";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";

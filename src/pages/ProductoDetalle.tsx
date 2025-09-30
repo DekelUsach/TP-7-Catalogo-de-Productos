@@ -4,19 +4,33 @@ import { useParams } from "react-router-dom";
 
 import { Container, Row, Col, Image, Button, Badge } from 'react-bootstrap';
 import "../styles/ProductoDetalle.css";
-import Cargando from "../Components/Cargando";
-import { useCart } from "../context/UseCart";
+import Cargando from "../Components/Cargando.js";
+import { useCart } from "../context/UseCart.js";
 
 export default function ProductoDetalle() {
     const { id } = useParams();
-    const [producto, setProducto] = useState(null);
+    const [producto, setProducto] = useState<Product | null>(null);
     const [cargando, setCargando] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<String>();
+    type Product = {
+      id: number;
+      title: string;
+      description: string;
+      price: number;
+      discountPercentage: number;
+      rating: number;
+      stock: number;
+      brand: string;
+      category: string;
+      thumbnail: string;
+      images: string[];
+    };
 const {addToCart} = useCart();    
   useEffect(() => {
     const traerProducto = async () => {
       try {
         const res = await axios.get(`https://dummyjson.com/products/${id}`);
+        console.log(res.data)
         setProducto(res.data);
       } catch (err) {
         console.error(err);

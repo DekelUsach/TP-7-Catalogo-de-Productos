@@ -4,17 +4,22 @@ import { NavLink, Navigate, Outlet } from "react-router-dom";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import axios from "axios";
 import logo from '../assets/logo.png';
-import CartWidget from "./CartWidget";
+import CartWidget from "./CartWidget.js";
 
 export default function NavBar() {
-    const [categorias, setCategorias] = useState([]);
+    const [categorias, setCategorias] = useState<Category[]>([]);
     const toggleRef = useRef(null);
     const sideMenuRef = useRef(null);
-  
+  type Category = {
+    name: string;
+    slug: string;
+    url: string;
+  };
     useEffect(() => {
       (async () => {
         try {
           const { data } = await axios.get("https://dummyjson.com/products/categories");
+          console.log(data)
           setCategorias(data);
         } catch (error) {
           console.error("Error al obtener las categorías:", error);
