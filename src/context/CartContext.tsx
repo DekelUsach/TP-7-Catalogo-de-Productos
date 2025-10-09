@@ -12,9 +12,10 @@ interface Product {
   [key: string]: any;
 }
 
+type CartItems = Product[];
+
 interface CartContextType {
-  cartItems: Product[];
-  setCartItems: React.Dispatch<React.SetStateAction<Product[]>>;
+  cartItems: CartItems;
   addToCart: (producto: Product) => void;
   removeFromCart: (idProducto: number) => void;
   clearCart: () => void;
@@ -35,7 +36,6 @@ const CarritoProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = (producto: Product) => {
     setCartItems((itemsGuardados: Product[]) => [...itemsGuardados, producto]);
-    console.log(cartItems)
   };
 
   const removeFromCart = (idProducto: number) => {
@@ -72,7 +72,6 @@ const CarritoProvider = ({ children }: { children: ReactNode }) => {
     <CartContext.Provider
       value={{
         cartItems,
-        setCartItems,
         addToCart,
         removeFromCart,
         clearCart,
